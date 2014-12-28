@@ -42,6 +42,20 @@ class PlayerFlow extends PluginBase {
         return PlayerFlow::$left;
     }
 
+    public function getJoined() {
+        return PlayerFlow::$joined;
+    }
+
+    public function increment($joined, $player) {
+        if($joined === true) {
+            if(in_array($player, PlayerFlow::$joined)) return;
+            array_push(PlayerFlow::$joined, $player);
+        } else {
+            if(in_array($player, PlayerFlow::$left)) return;
+            array_push(PlayerFlow::$left, $player);
+        }
+    }
+
     public function reset() {
         PlayerFlow::$left = null;
         PlayerFlow::$joined = null;

@@ -27,8 +27,6 @@ class FlowTask extends PluginTask {
 
         $this->plugin->getServer()->broadcastMessage($msg);
 
-        $this->plugin->getLeft();
-
         $this->plugin->reset();
     }
 }
