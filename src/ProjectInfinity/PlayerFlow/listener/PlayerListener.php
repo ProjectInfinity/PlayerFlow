@@ -4,7 +4,6 @@ namespace ProjectInfinity\PlayerFlow\listener;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\event\player\PlayerKickEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 
 use ProjectInfinity\PlayerFlow\PlayerFlow;
@@ -23,11 +22,6 @@ class PlayerListener implements Listener {
     }
 
     public function onPlayerQuit(PlayerQuitEvent $event) {
-        # Increment counter.
-        $this->plugin->increment(false, $event->getPlayer()->getDisplayName());
-    }
-
-    public function onPlayerKick(PlayerKickEvent $event) {
         # Increment counter.
         $this->plugin->increment(false, $event->getPlayer()->getDisplayName());
     }

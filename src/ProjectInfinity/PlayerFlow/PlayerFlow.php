@@ -21,6 +21,9 @@ class PlayerFlow extends PluginBase {
         $this->saveDefaultConfig();
         $this->reloadConfig();
 
+        # Initialize arrays.
+        PlayerFlow::$joined = [];
+        PlayerFlow::$left = [];
         # This is in seconds.
         $this->interval = $this->getConfig()->get("interval");
         # This will show or hide players from the broadcast.
