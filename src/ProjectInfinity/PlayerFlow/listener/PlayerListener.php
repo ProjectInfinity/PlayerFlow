@@ -19,11 +19,14 @@ class PlayerListener implements Listener {
     public function onPlayerJoin(PlayerJoinEvent $event) {
         # Increment counter.
         $this->plugin->increment(true, $event->getPlayer()->getDisplayName());
+        $event->setJoinMessage(null);
     }
 
     public function onPlayerQuit(PlayerQuitEvent $event) {
         # Increment counter.
         $this->plugin->increment(false, $event->getPlayer()->getDisplayName());
+        # Cancel message.
+        $event->setQuitMessage(null);
     }
 
 }
