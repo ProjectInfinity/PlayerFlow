@@ -19,6 +19,12 @@ class FlowTask extends PluginTask {
         $number = $this->plugin->interval / 60;
 
         $leftCount = count($this->plugin->getLeft());
+        $joinedCount = count($this->plugin->getJoined());
+
+        if($leftCount === 0 and $joinedCount === 0) {
+            # Return, there's no point in saying that nobody joined or left the server.
+            return;
+        }
 
         $msg = TextFormat::GOLD."In the last ".($number >= 1 ? $number." minute". ($number > 1 ? "s" : "") : $this->plugin->interval." second".($this->plugin->interval > 1) ? "s": ""). $leftCount. " player". ($leftCount > 1 ? "s" : "") ."left the server.";
         if($this->plugin->showPlayers) {
