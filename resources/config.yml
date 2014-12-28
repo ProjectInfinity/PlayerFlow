@@ -1,1 +1,2 @@
-interval: 1m00s
+interval: 60
+showPlayers: true
